@@ -1,4 +1,4 @@
-.repos-list {
+.repo-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -7,4 +7,9 @@
 .repo-item {
   margin: 20px;
   text-align: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 150px;
 }

@@ -13,8 +13,13 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    this.updateLang(this.state.selectedLang)
+    this.updateLang(this.state.selectedLang);
+    document.title = `Populare Repos | ${this.state.selectedLang}`
   }
+  componentWillReceiveProps(nextProps) {
+    document.title = `Populare Repos | ${this.state.selectedLang}`
+  }
+  
   
   updateLang(lang) {
     this.setState({ 
