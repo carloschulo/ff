@@ -1,0 +1,11 @@
+.lang-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.lang-list li {
+  cursor: pointer;
+  margin: 15px;
+  font-weight: bold;
+}
