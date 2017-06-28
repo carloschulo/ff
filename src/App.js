@@ -16,9 +16,11 @@ class App extends Component {
     this.updateLang(this.state.selectedLang);
     document.title = `Populare Repos | ${this.state.selectedLang}`
   }
-  componentWillReceiveProps(nextProps) {
-    document.title = `Populare Repos | ${this.state.selectedLang}`
-  }
+componentWillUpdate(nextProps, nextState) {
+  // console.log('np', nextProps, 'ns',nextState);
+  document.title = `Populare Repos | ${nextState.selectedLang}`
+}
+
   
   
   updateLang(lang) {
