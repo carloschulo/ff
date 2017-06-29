@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { CSSTransitionGroup } from 'react-transition-group'
 import './popular.css';
 
 class Popular extends Component {
@@ -13,7 +14,14 @@ class Popular extends Component {
     ];
     const { updateLang, selectedLang } = this.props;
     return (
-      <ul className='lang-list'>
+      <CSSTransitionGroup
+        transitionName="example"
+        transitionAppearTimeout={800}
+      transitionEnter={false}
+      transitionLeave={false}
+        transitionAppear={true}
+        component='ul'
+        className='lang-list'>
         {langs.map(lang => 
           <li style={lang === selectedLang ? {color:'red'} : null}
               key={lang}
@@ -22,7 +30,7 @@ class Popular extends Component {
               {lang}
           </li>
           )}
-      </ul>
+      </CSSTransitionGroup>
      
     );
   }

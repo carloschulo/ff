@@ -9,3 +9,14 @@
   margin: 15px;
   font-weight: bold;
 }
+.example-appear {
+  opacity: 0.01;
+  transition: all 0.8s;
+  transform: translateY(-70%);
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transform: translateY(0);
+  /*transition: opacity 5s ease-in;*/
+}
