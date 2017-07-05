@@ -3,6 +3,10 @@ import { CSSTransitionGroup } from "react-transition-group";
 import "./popular.css";
 
 class Popular extends Component {
+  static propTypes ={
+    updateLang: React.PropTypes.func.isRequired,
+    selectedLang: React.PropTypes.node
+  }
   render() {
     const langs = ["All", "JS", "Ruby", "Java", "Python", "Swift"];
     const { updateLang, selectedLang } = this.props;

@@ -4,7 +4,7 @@ export default (state = [], action) => {
   switch (action.type) {
     case REPO_DATA:
       const newState = [{repos: action.repos}];
-      return newState;
+      return newState[0].repos.repos;
 
     default:
       return state;

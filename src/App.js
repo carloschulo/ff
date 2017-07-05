@@ -7,6 +7,12 @@ import "./App.css";
 import { getRepo, getRepoData } from "./actions/repos";
 
 class App extends Component {
+  static propType = {
+    repos: React.PropTypes.string.isRequired,
+    repoData: React.PropTypes.array.isRequired,
+    getRepo: React.PropTypes.func.isRequired,
+    getRepoData: React.PropTypes.func.isRequired
+  };
   constructor(props) {
     super(props);
     this.updateLang = this.updateLang.bind(this);
@@ -37,13 +43,12 @@ class App extends Component {
     });
   }
   render() {
-    // !this.state.repos ? null : console.log(this.props.repoData[0]);
     return (
       <div className="App">
         <Popular updateLang={this.updateLang} selectedLang={this.props.repos} />
         {!this.state.repos
           ? <p>Loading...</p>
-          : <ReposGrid repos={this.state.repos} />}
+          : <ReposGrid repos={this.props.repoData} />}
       </div>
     );
   }
