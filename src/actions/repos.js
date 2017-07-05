@@ -9,3 +9,10 @@ export function getRepo(lang) {
   };
 }
 
+export const REPO_DATA = "REPO_DATA";
+export function getRepoData(repos) {
+  return {
+    type: REPO_DATA,
+    repos
+  };
+}

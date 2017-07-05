@@ -4,7 +4,7 @@ import { Popular, ReposGrid } from "./components";
 import { fetchPopRepos } from "./utils/api";
 import "./App.css";
 
-import { getRepo } from "./actions/repos";
+import { getRepo, getRepoData } from "./actions/repos";
 
 class App extends Component {
   constructor(props) {
@@ -31,10 +31,13 @@ class App extends Component {
       selectedLang: lang,
       repos: null
     });
-    fetchPopRepos(lang).then(repos => this.setState({ repos }));
+    fetchPopRepos(lang).then(repos => {
+      this.setState({ repos });
+      this.props.getRepoData({ repos });
+    });
   }
   render() {
-    // console.log(this.props.repos);
+    // !this.state.repos ? null : console.log(this.props.repoData[0]);
     return (
       <div className="App">
         <Popular updateLang={this.updateLang} selectedLang={this.props.repos} />
@@ -48,9 +51,11 @@ class App extends Component {
 
 export default connect(
   state => ({
-    repos: state.repos
+    repos: state.repos,
+    repoData: state.repoData
   }),
   {
-    getRepo
+    getRepo,
+    getRepoData
   }
 )(App);
